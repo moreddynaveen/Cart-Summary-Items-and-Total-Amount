@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+      function AddClick(){
+        document.getElementById("detailsofItems").style.display="block";
+        let icecream = document.getElementById("icecream");
+        let pop = document.getElementById("pop");
+        let beverage = document.getElementById("beverage");  
+
+        let icecreamname = icecream.options[icecream.selectedIndex].text;
+        let icecreamprice = parseFloat(icecream.value) || 0;
+
+        let popname = pop.options[pop.selectedIndex].text;
+        let popprice = parseFloat(pop.value) || 0;
+
+        let beveragename = beverage.options[beverage.selectedIndex].text;
+        let beverageprice = parseFloat(beverage.value) || 0;
+
+        document.getElementById("lblIce").innerText = icecreamname;
+        document.getElementById("lblPop").innerText = popname;
+        document.getElementById("lblBeverage").innerText = beveragename;
+
+        total = icecreamprice + popprice + beverageprice;
+        document.getElementById("lblTotal").innerHTML = total + "&#8377;";
+      }
+    </script>
+    <style>
+      dl{
+        display: grid;
+        grid-template-columns: 3fr 3fr;
+      }
+    </style>
+</head>
+<body class="container-fluid">
+  <h2>D mart Items<h2>
+<div id="toolbar" class="me-3 d-flex w-50">
+  <div class="me-2">
+    <select class="form-select" id="icecream">
+      <option value="">Choose Icecreams</option>
+      <option value="20">Choclate<span> 20 &#8377;</span></option>
+      <option value="20">Mixed <span> 20 &#8377;</span></option>
+      <option value="30">Butter Scotch <span> 30 &#8377;</span></option>
+    </select>
+  </div>
+  <div class="me-2">
+    <select class="form-select" id="pop">
+      <option value="">Choose Popcorn</option>
+      <option value="30">Salty <span> 30 &#8377;</span></option>
+      <option value="40">Hoty PopCorn <span> 40 &#8377;</span></option>
+      <option value="50">Mixed Popcorn <span> 50 &#8377;</span><option>
+    </select>
+  </div>
+  <div class="me-2">
+    <select class="form-select" id="beverage">
+      <option value="">Choose Beverages</option>
+      <option value="99">Burger <span> 99 &#8377;</span></option>
+      <option value="25">Chicken Puff <span> 25 &#8377;</span></option>
+      <option value="150">Pizza <span> 150 &#8377;</span><option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-success" onclick="AddClick()">Add Items</button>
+  </div>
+</div>
+<div id="detailsofItems" style="display:none;">
+  <dl>
+    <dt>Item Of Icecream</dt>
+    <dd id="lblIce"></dd>
+    <dt>Item Of PopCorn</dt>
+    <dd id="lblPop"></dd>
+    <dt>Item Of Beverages</dt>
+    <dd id="lblBeverage"></dd>
+    <dt>Total</dt>
+    <dd id="lblTotal"></dd>
+  </dl>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
